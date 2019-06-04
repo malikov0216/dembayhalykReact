@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {Form, FormGroup, Label, Input, Button, FormText, Spinner, Container, Toast, ToastHeader, ToastBody, Row, Col, TabContent, TabPane, NavItem, Nav, NavLink} from 'reactstrap';
+import {Form, FormGroup, Label, Input, Button, Spinner, Container, Toast, ToastHeader, ToastBody, Row, Col, TabContent, TabPane, NavItem, Nav, NavLink} from 'reactstrap';
 import {fetchLastSalary, fetchSumOfYearSalary, fetchSendMoney, fetchCurrentMoney} from "../../store/actions/actions";
 import classnames from 'classnames';
 
