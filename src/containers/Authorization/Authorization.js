@@ -1,6 +1,7 @@
-import React, {Component} from 'react';
-import { Button, Form, FormGroup, Label, Input, Container } from 'reactstrap';
+import React, {Component, Fragment} from 'react';
+import { Button, Form, FormGroup, Label, Input, Container, Col} from 'reactstrap';
 import {Link} from "react-router-dom";
+import './Authorization.css';
 
 
 class Authorization extends Component {
@@ -14,38 +15,47 @@ class Authorization extends Component {
 
     render() {
         return (
-            <Container>
-                <Form inline className="d-flex flex-column justify-content-around">
-                    <FormGroup style={{marginBottom: "15px"}}>
-                        <Label for="login" className="mr-sm-2">Логин</Label>
-                        <Input
-                            type="text"
-                            name="login"
-                            id="login"
-                            value={this.state.login}
-                            onChange={this.inputChangeHandler}
-                        />
-                    </FormGroup>
-                    <FormGroup style={{marginBottom: "15px"}}>
-                        <Label for="password" className="mr-sm-2">Пароль</Label>
-                        <Input
-                            type="password"
-                            name="password"
-                            id="password"
-                            value={this.state.password}
-                            onChange={this.inputChangeHandler}
-                        />
-                    </FormGroup>
-                    <Button
-                        tag={Link}
-                        to={"/cabinet/"+ this.state.login + "/" + this.state.password}
-                        color="primary"
-                    >
-                        Войти
-                    </Button>
-
-                </Form>
-            </Container>
+            <Fragment>
+                <img src="https://assets3.insales.ru/assets/1/5727/702047/v_1493949522/build/logo.png" alt="logo"/>
+                <Container className="App">
+                    <Form className="form">
+                        <Col>
+                            <FormGroup>
+                                <Label>Логин</Label>
+                                <Input
+                                    type="text"
+                                    name="login"
+                                    placeholder="Введите свой логин"
+                                    value={this.state.login}
+                                    onChange={this.inputChangeHandler}
+                                />
+                            </FormGroup>
+                        </Col>
+                        <Col>
+                            <FormGroup>
+                                <Label for="examplePassword">Пароль</Label>
+                                <Input
+                                    type="password"
+                                    name="password"
+                                    id="examplePassword"
+                                    placeholder="********"
+                                    value={this.state.password}
+                                    onChange={this.inputChangeHandler}
+                                />
+                            </FormGroup>
+                        </Col>
+                        <Button
+                            className="btnA"
+                            block
+                            tag={Link}
+                            color="primary"
+                            to={'/cabinet/' + this.state.login + '/' + this.state.password}
+                        >
+                            Войти
+                        </Button>
+                    </Form>
+                </Container>
+            </Fragment>
         );
     }
 }

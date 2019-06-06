@@ -20,7 +20,6 @@ export const fetchSendMoneySuccess = (amount) => {
 export const fetchCurrentMoney = (username, password) => {
     return dispatch => {
         axios.get(`/current-money/${username}/${password}`).then(response => {
-            console.log("[CURRENT MONEY] ", response.data);
             dispatch(fetchCurrentMoneySuccess(response.data.money, response.data.fullName))
         })
     }
@@ -29,7 +28,6 @@ export const fetchCurrentMoney = (username, password) => {
 export const fetchLastSalary = (username, password) => {
     return dispatch => {
         axios.get(`/main/${username}/${password}`).then(response => {
-            console.log("[LAST SALARY] ",response.data);
             dispatch(fetchLastSalarySuccess(response.data))
         })
     }
@@ -38,7 +36,6 @@ export const fetchLastSalary = (username, password) => {
 export const fetchSumOfYearSalary = (username, password) => {
     return dispatch => {
         axios.get(`/sum-of-years/${username}/${password}`).then(response => {
-            console.log("[SUM OF SALARY] ",response.data);
             dispatch(fetchSumOfYearSalarySuccess(response.data))
         })
     }
@@ -47,7 +44,6 @@ export const fetchSumOfYearSalary = (username, password) => {
 export const fetchSendMoney = (username, password, id, amount) => {
     return dispatch => {
         axios.get(`/send-money/username=${username}&password=${password}&id=${id}&amount=${amount}`).then(response => {
-            console.log("[SEND MONEY] ",response.data);
             dispatch(fetchSendMoneySuccess(response.data))
         })
     }

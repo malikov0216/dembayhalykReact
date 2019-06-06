@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {Form, FormGroup, Label, Input, Button, Spinner, Container, Toast, ToastHeader, ToastBody, Row, Col, TabContent, TabPane, NavItem, Nav, NavLink} from 'reactstrap';
+import {Button, Spinner, Container, Toast, ToastHeader, ToastBody, Row, Col, TabContent, TabPane, NavItem, Nav, NavLink} from 'reactstrap';
 import {fetchLastSalary, fetchSumOfYearSalary, fetchSendMoney, fetchCurrentMoney} from "../../store/actions/actions";
 import classnames from 'classnames';
 
@@ -81,21 +81,13 @@ class Cabinet extends Component {
                                         Переводы
                                     </NavLink>
                                 </NavItem>
-                                <NavItem>
-                                    <NavLink
-                                        className={classnames({ active: this.state.activeTab === '4' })}
-                                        onClick={() => { this.toggle('4'); }}
-                                    >
-                                        Отправка отчета
-                                    </NavLink>
-                                </NavItem>
                             </Nav>
                             <TabContent activeTab={this.state.activeTab}>
                                 <TabPane tabId="1">
                                     <Row>
                                         <Col sm="12" className="mb-3">
                                             <div className="mb-4">
-                                                <h3>Ваша последняя зарплата</h3>
+                                                <h3 style={{margin: "23px 0"}}>Ваша последняя зарплата</h3>
                                                 {Object.keys(this.props.salary).map(items => {
                                                     return (
                                                         <p key={items}>{this.props.salary[items]}</p>
@@ -108,7 +100,7 @@ class Cabinet extends Component {
                                 <TabPane tabId="2">
                                     <Row>
                                         <Col sm="12" className="mb-3">
-                                            <h3>Сумма зарплат</h3>
+                                            <h3 style={{margin: "23px 0"}}>Сумма зарплат</h3>
                                             {
                                                     Object.keys(this.props.sumOfYearSalary).map(items => {
                                                         return (
@@ -134,7 +126,7 @@ class Cabinet extends Component {
                                 <TabPane tabId="3">
                                     <Row>
                                         <Col sm="12" className="mb-3 d-flex flex-column align-items-around" style={{maxWidth: "400px"}}>
-                                            <h3>Перевод денег</h3>
+                                            <h3 style={{margin: "23px 0"}}>Перевод денег</h3>
                                             <input
                                                 type="text"
                                                 name="id"
@@ -154,27 +146,6 @@ class Cabinet extends Component {
                                             <Button color="primary" onClick={() => this.props.onFetchSendMoney(this.username, this.password, this.state.id, this.state.amount)}>
                                                 Перевести ${this.state.amount}
                                             </Button>
-                                        </Col>
-                                    </Row>
-                                </TabPane>
-                                <TabPane tabId="4">
-                                    <Row>
-                                        <Col sm="12" className="mb-3">
-                                            <Form>
-                                                <FormGroup>
-                                                    <Label for="exampleEmail">Почта</Label>
-                                                    <Input type="email" name="email" id="exampleEmail" placeholder="volupta07@mail.ru" />
-                                                </FormGroup>
-                                                <FormGroup>
-                                                    <Label for="examplePassword">Password</Label>
-                                                    <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
-                                                </FormGroup>
-                                                <FormGroup>
-                                                    <Label for="exampleText">Text Area</Label>
-                                                    <Input type="textarea" name="text" id="exampleText" />
-                                                </FormGroup>
-                                                <Button>Submit</Button>
-                                            </Form>
                                         </Col>
                                     </Row>
                                 </TabPane>

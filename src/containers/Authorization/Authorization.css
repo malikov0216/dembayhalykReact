@@ -1,0 +1,42 @@
+.App {
+    text-align: left;
+    padding: 1em;
+    margin: 1em;
+    border: 2px solid #d3d3d3;
+    border-radius: .5em;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    margin-top: 100px;
+}
+
+img {
+    display: block;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form {
+    padding: 1em;
+}
+
+label {
+    display: flex;
+    font-weight: 600;
+}
+
+
+.App-title {
+    font-size: 1.5em;
+}
+
+.App-intro {
+    font-size: large;
+}
+
+.btnA {
+    max-width: 90px;
+    margin: auto;
+}
