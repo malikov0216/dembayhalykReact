@@ -22,6 +22,10 @@ class Cabinet extends Component {
         this.props.onFetchLastSalary(this.username, this.password);
         this.props.onFetchCurrentMoney(this.username, this.password);
     }
+    goBack = () => {
+        this.props.history.goBack();
+    };
+
     inputChangeHandler = (event) => {
         this.setState({[event.target.name]: event.target.value})
     };
@@ -42,7 +46,7 @@ class Cabinet extends Component {
             <Container>
                 <Row>
                     <Col md="3" sm="12">
-                        <div className="p-3 bg-success my-2 rounded">
+                        <div className="p-3 bg-info my-2 rounded">
                             <Toast>
                                 <ToastHeader>
                                     <span style={{fontSize: "25px"}}>{this.props.fullName}</span>
@@ -52,6 +56,12 @@ class Cabinet extends Component {
                                     <span style={{fontWeight: "bold"}}> {this.props.currentMoney}</span>
                                 </ToastBody>
                             </Toast>
+                            <Button
+                                onClick={this.goBack}
+                                color="danger"
+                            >
+                                Назад
+                            </Button>
                         </div>
                     </Col>
                     <Col md="9" sm="12">
